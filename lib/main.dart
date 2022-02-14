@@ -50,10 +50,10 @@ class _MyAppState extends State<MyApp> {
     Parameters.appOrientation = jsonMap['appOrientation'];
     Parameters.webViewMode = jsonMap['webViewMode'];
     Parameters.adUnitId = jsonMap['adUnitId'];
-    Parameters.pullToReload = jsonMap['pullToReload'];
-    Parameters.darkMode = jsonMap['darkMode'];
-    Parameters.zoomControl = jsonMap['zoomControl'];
-    Parameters.permissions = jsonMap['permissions'];
+    Parameters.pullToReload = jsonMap['pullToReload']=='true';
+    Parameters.darkMode = jsonMap['darkMode']=='true';
+    Parameters.zoomControl = jsonMap['zoomControl']=='true';
+    Parameters.permissions = json.decode(jsonMap['permissions']);
     MobileAds.instance.initialize();
     if(Parameters.appOrientation == 'auto' ) {
       //Set to auto
