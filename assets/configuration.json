@@ -1,7 +1,7 @@
 {
-    "appname"    : "FlutterWebViewAutomationProject",	
-    "packagename"    : "com.dummy.package",
-    "version"    : "",    
+    "appname"    : "FlutterWebViewAutomationProject4",
+    "packagename"    : "z.y.x",
+    "version"    : "4.1.1+1",    
     "appOrientation" : "auto",
     "webViewMode" : "mobile",
     "appiconpath" : "",    
@@ -10,7 +10,6 @@
     "accentColor" : "",   
     "secondaryColor" : "0XFFFFFFFF",
     "primaryColor" : "0XFF000000",        
-    "googleAnalyticsId" : "",
     "onesignalID" : "b2f7f966-d8cc-11e4-bed1-df8f05be55ba",
     "adUnitId" : "ca-app-pub-3940256099942544/6300978111",
     "admobPosition" : "top",
@@ -18,5 +17,5 @@
     "pullToReload" : "true",
     "permissions" : "[\"camera\", \"location\"]",
     "zoomControl" : "true",
-    "webViewURL" : "https://google.com"
+    "webViewURL" : "https://googles.com"
 }

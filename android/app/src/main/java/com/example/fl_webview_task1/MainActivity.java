@@ -1,4 +1,4 @@
-package com.example.freelancer_webview_task1;
+package com.example.fl_webview_task1;
 
 import io.flutter.embedding.android.FlutterActivity;
 

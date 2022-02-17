@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:freelancer_webview_task1/parameters.dart';
-import 'package:freelancer_webview_task1/splash.dart';
+import 'package:fl_webview_task1/parameters.dart';
+import 'package:fl_webview_task1/splash.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 // import 'package:firebase_core/firebase_core.dart';
 

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:freelancer_webview_task1/parameters.dart';
+import 'package:fl_webview_task1/parameters.dart';
 
 
 class MyConnectivity {

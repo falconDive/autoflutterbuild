@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:freelancer_webview_task1/parameters.dart';
+import 'package:fl_webview_task1/parameters.dart';
 import 'connectivity.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'main.dart';

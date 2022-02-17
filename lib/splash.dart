@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:freelancer_webview_task1/parameters.dart';
+import 'package:fl_webview_task1/parameters.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 // import 'package:firebase_analytics/firebase_analytics.dart';
 

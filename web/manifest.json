@@ -1,6 +1,6 @@
 {
-    "name": "freelancer_webview_task1",
-    "short_name": "freelancer_webview_task1",
+    "name": "fl_webview_task1",
+    "short_name": "fl_webview_task1",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
