@@ -18,7 +18,9 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
-    OneSignal.shared.setAppId(Parameters.onesignalID);
+    if(Parameters.onesignalID.isNotEmpty) {
+      OneSignal.shared.setAppId(Parameters.onesignalID);
+    }
     // FirebaseAnalytics analytics = FirebaseAnalytics.instance;
     Timer.periodic(const Duration(seconds: 2), (timer) {
       timer.cancel();
@@ -38,7 +40,7 @@ class _SplashState extends State<Splash> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           /// ADD NEW LOGO TO ASSET FOLDER AND RENAME BELOW
-          Center(child: Image.asset(Parameters.splashScreenImagePath)),
+          Parameters.splashScreenImagePath.isNotEmpty ? Center(child: Image.asset(Parameters.splashScreenImagePath)):SizedBox(),
         ],
       ),
     );

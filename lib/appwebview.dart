@@ -84,7 +84,9 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
 
       },
     );
-    myBanner.load();
+    if(Parameters.adUnitId.isNotEmpty) {
+      myBanner.load();
+    }
     super.initState();
       _connectivity.initialise();
       _connectivity.myStream.listen((source) {
@@ -128,7 +130,9 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
 
   @override
   void dispose() {
-    myBanner.dispose();
+    if(Parameters.adUnitId.isNotEmpty) {
+      myBanner.dispose();
+    }
     super.dispose();
   }
 
@@ -159,7 +163,7 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
             body: Column(
 
                 children: <Widget>[
-              Parameters.admobPosition =='top' ? Container(
+              Parameters.admobPosition =='top' && Parameters.adUnitId.isNotEmpty ? Container(
                   alignment: Alignment.center,
                   width: myBanner.size.width.toDouble(),
                   height: myBanner.size.height.toDouble(),
@@ -460,7 +464,7 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
                   ],
                 ),
               ),
-              Parameters.admobPosition =='bottom' ? Container(
+              Parameters.admobPosition =='bottom' && Parameters.adUnitId.isNotEmpty ? Container(
                   alignment: Alignment.center,
                   width: myBanner.size.width.toDouble(),
                   height: myBanner.size.height.toDouble(),

@@ -43,9 +43,30 @@ class _MyAppState extends State<MyApp> {
     Parameters.admobPosition = jsonMap['admobPosition'];
     Parameters.webViewURL = jsonMap['webViewURL'];
     Parameters.splashScreenImagePath = jsonMap['splashScreenImagePath'];
-    Parameters.splashScreenBackgroundColor = int.parse(jsonMap['splashScreenBackgroundColor']);
-    Parameters.primaryColor = int.parse(jsonMap['primaryColor']);
-    Parameters.secondaryColor = int.parse(jsonMap['secondaryColor']);
+    if(jsonMap['splashScreenImagePath'].toString().isNotEmpty) {
+      if(jsonMap['splashScreenBackgroundColor'].toString().isNotEmpty) {
+        Parameters.splashScreenBackgroundColor = int.parse(jsonMap['splashScreenBackgroundColor']);
+      }
+      else {
+        Parameters.splashScreenBackgroundColor = 0XFFFFFFFF;
+      }
+    } else {
+      Parameters.splashScreenBackgroundColor = 0XFFFFFFFF;
+    }
+
+    if(jsonMap['primaryColor'].toString().isNotEmpty) {
+      Parameters.primaryColor = int.parse(jsonMap['primaryColor']);
+    } else {
+      Parameters.primaryColor  = 0XFF000000;
+    }
+
+    if(jsonMap['secondaryColor'].toString().isNotEmpty) {
+      Parameters.secondaryColor = int.parse(jsonMap['secondaryColor']);
+    } else {
+      Parameters.secondaryColor  = 0XFFFFFFFF;
+    }
+
+
     Parameters.onesignalID = jsonMap['onesignalID'];
     Parameters.appOrientation = jsonMap['appOrientation'];
     Parameters.webViewMode = jsonMap['webViewMode'];
@@ -53,7 +74,14 @@ class _MyAppState extends State<MyApp> {
     Parameters.pullToReload = jsonMap['pullToReload']=='true';
     Parameters.darkMode = jsonMap['darkMode']=='true';
     Parameters.zoomControl = jsonMap['zoomControl']=='true';
-    Parameters.permissions = json.decode(jsonMap['permissions']);
+    if(jsonMap['permissions'].runtimeType.toString()=='List<dynamic>') {
+      Parameters.permissions = jsonMap['permissions'];
+    }
+    else {
+      Parameters.permissions = [];
+    }
+
+
     MobileAds.instance.initialize();
     if(Parameters.appOrientation == 'auto' ) {
       //Set to auto
@@ -95,4 +123,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
