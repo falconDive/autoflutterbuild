@@ -168,7 +168,7 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
                   width: myBanner.size.width.toDouble(),
                   height: myBanner.size.height.toDouble(),
                   child: AdWidget(ad: myBanner)):SizedBox(),
-              true ? Expanded(
+              false ? Expanded(
                 child: SingleChildScrollView( 
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
