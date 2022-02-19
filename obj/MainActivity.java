@@ -1,1 +1,1 @@
-package za.ya.xa;import io.flutter.embedding.android.FlutterActivity;public class MainActivity extends FlutterActivity {}
+package za.ya;import io.flutter.embedding.android.FlutterActivity;public class MainActivity extends FlutterActivity {}
