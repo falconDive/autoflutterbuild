@@ -77,10 +77,11 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
     getPermissions();
     pullToRefreshController = PullToRefreshController(
       onRefresh: (){
-        if(Parameters.pullToReload)
-        webViewController!.reload().then((value) {
+        if(Parameters.pullToReload) {
+          webViewController!.reload().then((value) {
           pullToRefreshController!.endRefreshing();
         });
+        }
 
       },
     );
@@ -94,36 +95,36 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
       });
 
 
-    contextMenu = ContextMenu(
-        menuItems: [
-          ContextMenuItem(
-              androidId: 1,
-              iosId: "1",
-              title: "Special",
-              action: () async {
-                print("Menu item Special clicked!");
-                print(await webViewController?.getSelectedText());
-                await webViewController?.clearFocus();
-              })
-        ],
-        options: ContextMenuOptions(hideDefaultSystemContextMenuItems: false),
-        onCreateContextMenu: (hitTestResult) async {
-          print("onCreateContextMenu");
-          print(hitTestResult.extra);
-          print(await webViewController?.getSelectedText());
-        },
-        onHideContextMenu: () {
-          print("onHideContextMenu");
-        },
-        onContextMenuActionItemClicked: (contextMenuItemClicked) async {
-          var id = (Platform.isAndroid)
-              ? contextMenuItemClicked.androidId
-              : contextMenuItemClicked.iosId;
-          print("onContextMenuActionItemClicked: " +
-              id.toString() +
-              " " +
-              contextMenuItemClicked.title);
-        });
+    // contextMenu = ContextMenu(
+    //     menuItems: [
+    //       ContextMenuItem(
+    //           androidId: 1,
+    //           iosId: "1",
+    //           title: "Special",
+    //           action: () async {
+    //             print("Menu item Special clicked!");
+    //             print(await webViewController?.getSelectedText());
+    //             await webViewController?.clearFocus();
+    //           })
+    //     ],
+    //     options: ContextMenuOptions(hideDefaultSystemContextMenuItems: false),
+    //     onCreateContextMenu: (hitTestResult) async {
+    //       print("onCreateContextMenu");
+    //       print(hitTestResult.extra);
+    //       print(await webViewController?.getSelectedText());
+    //     },
+    //     onHideContextMenu: () {
+    //       print("onHideContextMenu");
+    //     },
+    //     onContextMenuActionItemClicked: (contextMenuItemClicked) async {
+    //       var id = (Platform.isAndroid)
+    //           ? contextMenuItemClicked.androidId
+    //           : contextMenuItemClicked.iosId;
+    //       print("onContextMenuActionItemClicked: " +
+    //           id.toString() +
+    //           " " +
+    //           contextMenuItemClicked.title);
+    //     });
 
 
   }
@@ -297,7 +298,10 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
                     InAppWebView(
                       key: webViewKey,
                       pullToRefreshController: pullToRefreshController,
-
+                      onJsAlert: (InAppWebViewController controller,  message) async {
+                        print('收到--$message');
+                        return null;
+                      },
                       // contextMenu: contextMenu,
                       /// HERE YOU NEED TO PUT URL BELOW
                       initialUrlRequest:
@@ -310,8 +314,9 @@ class _InAppWebViewExampleScreenState extends State<InAppWebViewExampleScreen> {
                         webViewController = controller;
                       },
                       onLoadStart: (controller, url) {
-                        if(Parameters.webViewMode=='desktop')
-                        webViewController!.evaluateJavascript(source: "document.querySelector('meta[name=\"viewport\"]').setAttribute('content', 'width=1024px, initial-scale=' + (document.documentElement.clientWidth / 1024));");
+                        if(Parameters.webViewMode=='desktop') {
+                          webViewController!.evaluateJavascript(source: "document.querySelector('meta[name=\"viewport\"]').setAttribute('content', 'width=1024px, initial-scale=' + (document.documentElement.clientWidth / 1024));");
+                        }
                         setState(() {
                           this.url = url.toString();
                           urlController.text = this.url;
